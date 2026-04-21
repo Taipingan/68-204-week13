@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
     Rigidbody2D rb2d;
     public float move;
     public float moveSpeed;
+    public float jumpForce;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,7 +20,7 @@ public class Player : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            rb2d.AddForce(new Vector2(rb2d.linearVelocityX, rb2d.linearVelocityY));
+            rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             Debug.Log("Jump");
         }
     }
